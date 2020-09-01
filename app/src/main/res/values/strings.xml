@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LoginSDK</string>
+    <!--  google登录  -->
+    <string name="google_service_client_id">1046839389737-pcnbt3botkf42839lpig2c30odhdshk8.apps.googleusercontent.com</string>
+    <!--  facebook登录  -->
+    <string name="facebook_app_id">363389224831040</string>
+    <string name="fb_login_protocol_scheme">fb363389224831040</string>
+</resources>
