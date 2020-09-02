@@ -36,6 +36,7 @@ object SignInTool {
 
     /**
      * facebook登录扩充方法
+     * 因为facebook内部实现是getActivity.startForResult 所以子Fragment无法接收到onActivityResult回调 所以必须手动设置.
      */
     fun facebookForResult(
         fragments: List<Fragment>,
@@ -46,6 +47,7 @@ object SignInTool {
         for (fragment in fragments) {
             if (fragment is IntentFragment) {
                 fragment.onActivityResult(requestCode, resultCode, data)
+                break
             }
         }
     }

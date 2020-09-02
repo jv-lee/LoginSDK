@@ -49,13 +49,9 @@ class SignInManager : LifecycleObserver {
 
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     fun signInByType(@SignInType type: Int) {
-        if (activity?.isDestroyed!!) {
-            return
-        }
-        this.currentRequest = SignInFactory.createRequest(type, fragment, signInCallback)
-        currentRequest?.run {
-            requestSignIn()
-        }
+        if (activity?.isDestroyed!!) return
+        currentRequest = SignInFactory.createRequest(type, fragment, signInCallback)
+        currentRequest?.run { requestSignIn() }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
