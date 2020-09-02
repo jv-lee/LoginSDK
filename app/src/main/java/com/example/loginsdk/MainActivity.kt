@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), SignInCallback {
         }
 
         findViewById<Button>(R.id.btn_facebook_out).setOnClickListener {
-//            LoginManager.getInstance().logOut()
+            SignInManager.get().signOutByType(SignInType.FACEBOOK)
         }
 
     }

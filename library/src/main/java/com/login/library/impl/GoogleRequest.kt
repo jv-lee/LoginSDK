@@ -64,6 +64,7 @@ internal class GoogleRequest(
             data?.id,
             data?.idToken,
             data?.displayName,
+            data?.email,
             data?.photoUrl.toString(),
             data
         )

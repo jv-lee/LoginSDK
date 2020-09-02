@@ -9,6 +9,7 @@ data class AccountResponse(
     val userId: String?,
     val token: String?,
     val userName: String?,
+    val email: String?,
     val photoUrl: String?,
     val typeData: Any?
 )
