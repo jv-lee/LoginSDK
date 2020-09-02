@@ -18,15 +18,15 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('../pioneer.jks')
+            storeFile file('../login.jks')
             storePassword "123456"
-            keyAlias "pioneer"
+            keyAlias "login"
             keyPassword "123456"
         }
         debug {
-            storeFile file('../pioneer.jks')
+            storeFile file('../login.jks')
             storePassword "123456"
-            keyAlias "pioneer"
+            keyAlias "login"
             keyPassword "123456"
         }
     }

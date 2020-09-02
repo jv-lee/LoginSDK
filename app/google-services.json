@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1046839389737-j2cahgi211ul4tlvs9qevfdnf2f5ns1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lee.login",
+            "certificate_hash": "762eebadff82eca514edf9a277a3581f6b1a169b"
+          }
+        },
+        {
           "client_id": "1046839389737-1qf2blpkus1624li78s6vpiiae9ok6j3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
