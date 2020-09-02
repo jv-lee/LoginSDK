@@ -18,8 +18,11 @@ import com.login.library.core.SignInRequest
  * @date 2020/9/2
  * @description
  */
-internal class GoogleRequest(private val fragment: Fragment, private val signInCallback: SignInCallback) :
-    SignInRequest<GoogleSignInAccount> {
+internal class GoogleRequest(
+    private val fragment: Fragment,
+    private val signInCallback: SignInCallback
+) :
+    SignInRequest<GoogleSignInAccount>(fragment, signInCallback) {
 
     override fun requestSignIn() {
         //校验令牌是否存在且是否过期
@@ -64,6 +67,15 @@ internal class GoogleRequest(private val fragment: Fragment, private val signInC
             data?.photoUrl.toString(),
             data
         )
+    }
+
+    override fun isExpired(): Boolean {
+        val account = GoogleSignIn.getLastSignedInAccount(fragment.requireContext())
+        return account != null && !account.isExpired
+    }
+
+    override fun signOut() {
+
     }
 
 }

@@ -54,6 +54,24 @@ class SignInManager : LifecycleObserver {
         currentRequest?.run { requestSignIn() }
     }
 
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    fun signOutByType(@SignInType type: Int) {
+        if (activity?.isDestroyed!!) return
+        currentRequest = SignInFactory.createRequest(type, fragment, signInCallback)
+        currentRequest?.run { signOut() }
+    }
+
+    /**
+     * false 为有效 / true 为失效
+     */
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    fun isExpiredByType(@SignInType type: Int): Boolean {
+        if (activity?.isDestroyed!!) return true
+        currentRequest = SignInFactory.createRequest(type, fragment, signInCallback)
+        currentRequest?.run { return isExpired() }
+        return true
+    }
+
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     private fun onDestroy() {
         activity = null

@@ -1,6 +1,7 @@
 package com.login.library.core
 
 import android.content.Intent
+import androidx.fragment.app.Fragment
 import com.login.library.bean.AccountResponse
 
 /**
@@ -8,13 +9,19 @@ import com.login.library.bean.AccountResponse
  * @date 2020/9/2
  * @description
  */
-interface SignInRequest<T> {
-    fun requestSignIn()
-    fun onActivityResult(
+abstract class SignInRequest<T> constructor(
+    private val fragment: Fragment,
+    private val signInCallback: SignInCallback
+) {
+    abstract fun requestSignIn()
+    abstract fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
         data: Intent?
     )
 
-    fun buildAccount(data: T?): AccountResponse
+    abstract fun buildAccount(data: T?): AccountResponse
+
+    abstract fun isExpired(): Boolean
+    abstract fun signOut()
 }

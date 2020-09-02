@@ -6,6 +6,8 @@ import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
+import com.facebook.login.Login
+import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.facebook.login.widget.LoginButton
 import com.login.library.annotation.SignInType
@@ -22,7 +24,7 @@ internal class FacebookRequest(
     private val fragment: Fragment,
     private val signInCallback: SignInCallback
 ) :
-    SignInRequest<String> {
+    SignInRequest<String>(fragment, signInCallback) {
 
     private var callbackManager: CallbackManager? = null
 
@@ -67,6 +69,15 @@ internal class FacebookRequest(
             account
         )
         return account
+    }
+
+    override fun isExpired(): Boolean {
+        val accessToken = AccessToken.getCurrentAccessToken()
+        return accessToken != null && !accessToken.isExpired
+    }
+
+    override fun signOut() {
+        LoginManager.getInstance().logOut()
     }
 
 }

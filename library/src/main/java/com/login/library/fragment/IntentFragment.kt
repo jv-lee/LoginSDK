@@ -1,7 +1,6 @@
 package com.login.library.fragment
 
 import android.content.Intent
-import android.util.Log
 import androidx.fragment.app.Fragment
 import com.login.library.SignInManager
 
@@ -9,13 +8,12 @@ import com.login.library.SignInManager
  * @author jv.lee
  * @date 2019/4/14
  */
-internal class IntentFragment : Fragment() {
+class IntentFragment : Fragment() {
     override fun onActivityResult(
         requestCode: Int,
         resultCode: Int,
         data: Intent?
     ) {
-        Log.i("LIJIAWEI", "onActivityResult: ")
         SignInManager.get().currentRequest?.run {
             try {
                 onActivityResult(requestCode, resultCode, data)

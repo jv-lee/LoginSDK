@@ -3,6 +3,7 @@ package com.example.loginsdk
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,8 @@ import com.login.library.tools.SignInTool
 
 
 class MainActivity : AppCompatActivity(), SignInCallback {
+
+    private val TAG = "SignInLog"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +33,7 @@ class MainActivity : AppCompatActivity(), SignInCallback {
         findViewById<Button>(R.id.btn_facebook_login).setOnClickListener {
             SignInManager.get().signInByType(SignInType.FACEBOOK)
         }
+
         findViewById<Button>(R.id.btn_facebook_out).setOnClickListener {
 //            LoginManager.getInstance().logOut()
         }
@@ -38,21 +42,26 @@ class MainActivity : AppCompatActivity(), SignInCallback {
 
     override fun signInSuccess(type: Int, response: AccountResponse) {
         when (type) {
-            SignInType.GOOGLE -> toast("googleSuccess:$response")
-            SignInType.FACEBOOK -> toast("facebookSuccess:$response")
+            SignInType.GOOGLE -> Log.i(TAG, "signInSuccess: google->$response")
+            SignInType.FACEBOOK -> Log.i(TAG, "signInSuccess: facebook->$response")
         }
 
     }
 
     override fun signInFailed(type: Int, msg: String) {
         when (type) {
-            SignInType.GOOGLE -> toast("googleFailed:$msg")
-            SignInType.FACEBOOK -> toast("facebookFailed:$msg")
+            SignInType.GOOGLE -> Log.i(TAG, "signInFailed: google->$msg")
+            SignInType.FACEBOOK -> Log.i(TAG, "signInFailed: facebook->$msg")
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        SignInTool.facebookForResult(supportFragmentManager.fragments, requestCode, resultCode, data)
+        SignInTool.facebookForResult(
+            supportFragmentManager.fragments,
+            requestCode,
+            resultCode,
+            data
+        )
         super.onActivityResult(requestCode, resultCode, data)
     }
 
