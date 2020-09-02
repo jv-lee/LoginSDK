@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "1046839389737",
+    "firebase_url": "https://loginsdk-1598941321196.firebaseio.com",
+    "project_id": "loginsdk-1598941321196",
+    "storage_bucket": "loginsdk-1598941321196.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046839389737:android:835d29e779110cb476b638",
+        "android_client_info": {
+          "package_name": "com.lee.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046839389737-j2cahgi211ul4tlvs9qevfdnf2f5ns1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lee.login",
+            "certificate_hash": "762eebadff82eca514edf9a277a3581f6b1a169b"
+          }
+        },
+        {
+          "client_id": "1046839389737-1qf2blpkus1624li78s6vpiiae9ok6j3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lee.login",
+            "certificate_hash": "05dfce03b3885b9a5e231418e79403ccb8880103"
+          }
+        },
+        {
+          "client_id": "1046839389737-roe04nb6926q9rjnvuotjgl9vln9o5eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqSRkdycx47BJWq6SVsyiHvkbpW1BXkkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046839389737-roe04nb6926q9rjnvuotjgl9vln9o5eo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
